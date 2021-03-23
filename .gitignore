@@ -1,32 +1,259 @@
-# Prerequisites
-*.d
-
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include <conio.h>
+#include <strings.h>
+ 
+void uno()
+{
+    printf("1\n");
+    
+}
+ 
+void dos()
+{
+    printf("2\n");
+}
+ 
+void tres()
+{
+    printf("3\n");
+}
+ 
+void cuatro()
+{
+    printf("4\n");
+}
+ 
+void cinco()
+{
+    printf("5\n");
+}
+ 
+void seis()
+{
+    printf("6\n");
+}
+ 
+int main()
+{
+    printf("JUEGO DE DADOS CRAPS\n\n");
+    int respuesta1, respuesta2, marc1=0, marc2=0, i, j=0, k, z=0;
+    system("PAUSE");
+    do
+    {
+        do
+        {
+            system("cls");
+            printf("\n              Partidas ganadas %d - %d Partidas perdidas\n\n", marc1, marc2);
+            for(i=0;i<2;i++)
+            {
+                if(i==0)
+                {
+                    printf("  Pulsa ENTER para tirar el primer dado.");
+                    getchar();
+                }
+                if(i==1)
+                {
+                    printf("\n\n  Pulsa ENTER para tirar el segundo dado.");
+                    getchar();
+                }
+                srand(time(NULL));
+                respuesta1 = (rand()%6)+1;
+                switch(respuesta1)
+                {
+                    case 1:
+                    {
+                        printf("\n\n");
+                        uno();
+                        break;
+                    }
+                    case 2:
+                    {
+                        printf("\n\n");
+                        dos();
+                        break;
+                    }
+                    case 3:
+                    {
+                        printf("\n\n");
+                        tres();
+                        break;
+                    }
+                    case 4:
+                    {
+                        printf("\n\n");
+                        cuatro();
+                        break;
+                    }
+                    case 5:
+                    {
+                        printf("\n\n");
+                        cinco();
+                        break;
+                    }
+                    case 6:
+                    {
+                        printf("\n\n");
+                        seis();
+                        break;
+                    }
+                }
+                j += respuesta1;
+            }
+            if(j==2)
+            {
+                printf("\n  Has perdido");
+                marc2++;
+                break;
+            }
+            if(j==3)
+            {
+                printf("\n  Has perdido");
+                marc2++;
+                break;
+            }
+            if(j==4)
+            {
+                printf("\n  El 4 es tu tirada. Suerte.");
+                respuesta2 = 4;
+            }
+            if(j==5)
+            {
+                printf("\n  El 5 es tu tirada. Suerte.");
+                respuesta2 = 5;
+            }
+            if(j==6)
+            {
+                printf("\n  El 6 es tu tirada. Suerte.");
+                respuesta2 = 6;
+            }
+            if(j==7)
+            {
+                printf("\n Has ganado");
+                marc1++;
+                break;
+            }
+            if(j==8)
+            {
+                printf("\n  El 8 es tu tirada. Suerte.");
+                respuesta2 = 8;
+            }
+            if(j==9)
+            {
+                printf("\n  El 9 es tu tirada. Suerte.");
+                respuesta2 = 9;
+            }
+            if(j==10)
+            {
+                printf("\n  El 10 es tu tirada. Suerte.");
+                respuesta2 = 10;
+            }
+            if(j==11)
+            {
+                printf("\n  Has ganado");
+                marc1++;
+                break;
+            }
+            if(j==12)
+            {
+                printf("\n  Has perdido");
+                marc2++;
+                break;
+            }
+            j = 0;
+            printf("\n\n  Pulsa ENTER para seguir tirando.");
+            getchar();
+            do
+            {
+                system("cls");
+                printf("\n Partidas ganadas %d - %d Partidas perdidas\n\n", marc1, marc2);
+                printf("  Necesitas sacar un %d. Suerte.", respuesta2);
+                for(i=0;i<2;i++)
+                {
+                    if(i==0)
+                    {
+                        printf("\n\n  Pulsa ENTER para tirar el primer dado.");
+                        getchar();
+                    }
+                    if(i==1)
+                    {
+                        printf("\n\n  Pulsa ENTER para tirar el segundo dado.");
+                        getchar();
+                    }
+                    srand(time(NULL));
+                    respuesta1 = (rand()%6)+1;
+                    switch(respuesta1)
+                    {
+                        case 1:
+                        {
+                            printf("\n\n");
+                            uno();
+                            break;
+                        }
+                        case 2:
+                        {
+                            printf("\n\n");
+                            dos();
+                            break;
+                        }
+                        case 3:
+                        {
+                            printf("\n\n");
+                            tres();
+                            break;
+                        }
+                        case 4:
+                        {
+                            printf("\n\n");
+                            cuatro();
+                            break;
+                        }
+                        case 5:
+                        {
+                            printf("\n\n");
+                            cinco();
+                            break;
+                        }
+                        case 6:
+                        {
+                            printf("\n\n");
+                            seis();
+                            break;
+                        }
+                    }
+                    j += respuesta1;
+                }
+                if(j==respuesta2)
+                {
+                    printf("\n  Has ganado. Enorabuena.");
+                    marc1++;
+                    break;
+                }
+                else if(j==7)
+                {
+                    printf("\n  Has perdido. Lastima.");
+                    marc2++;
+                    break;
+                }
+                else
+                {
+                    j = 0;
+                    printf("\n  Sigue probando. Pulsa ENTER.");
+                    getchar();
+                }
+            }
+            while(z==0);
+            printf("\n  ");
+            j = 0;
+            system("PAUSE");
+        }
+        while(z==0);
+        printf("\n  ");
+        j = 0;
+        system("PAUSE");
+    }
+    while(z==0);
+    return 0;
+}

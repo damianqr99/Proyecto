@@ -1,0 +1,101 @@
+#include <cstdlib>   // srand(), rand()
+#include <ctime>     // time()
+#include <iostream>
+ 
+using namespace std;
+ 
+int main()
+{
+	int intento=5,intentodos=7,pensado,dicho,i,Opcion=0;
+	
+	cout <<"            JUEGO ADIVINA EL NUMERO   "<<endl<<endl;
+    cout <<"         Elige la Dificultad del Juego     "<<endl<<endl;
+	cout << "***************Menu del Juego*****************"<<endl<<endl;
+	 
+    cout << " 1. Nivel 1: Numeros entre 1 y 10 con 5 oportunidades\n\n";
+     
+    cout << " 2. Nivel 2: Numeros entre 10 y 40 con 7 oportunidades\n\n ";
+      cout << "";
+      cout << "Elija <1-2> para comenzar \n";
+      cin >> Opcion;
+   
+
+     switch(Opcion)
+                {
+                    case 1:
+                    {
+   						
+						srand(static_cast<unsigned>(time(NULL)));
+ 					    pensado = rand() % 10+1;
+  								
+						for(i=1;i<=intento;i++){
+						
+						cout <<"Escriba un numero entero de 0 a 10"<<endl; cin>>dicho;	
+						
+						
+							if (pensado == dicho){
+							intento=1;
+            				cout << "felicidades, has adivinado el numero\n";	
+       					 	}
+       							else{
+       							 	if(pensado > dicho){
+       							 	cout << "El numero es mayor a ";
+           						 	cout <<dicho<<endl;	
+									}     							 		
+									else{
+										if(pensado < dicho){
+										cout << "El numero es menor a ";
+           						  		cout << dicho<<endl;	
+										}
+										else{
+										cout<<"El dato introducido es incorrecto";
+										}}}
+							if(i == 5 && pensado != dicho){
+								cout<<endl<<"Has perdido el juego"<<endl<<"El numero es: "<<pensado<<endl<<endl;
+							}
+										}
+						break; 
+						}
+    					                   
+                    case 2:
+            		{
+                       	srand(static_cast<unsigned>(time(NULL)));
+ 						pensado = rand()% 31+10;
+    					
+    					for(i=1;i<=intentodos;i++){
+    						
+    					cout << "Escriba un numero entero de 10 a 40"<<endl;cin>>dicho;
+       						 
+       					if (pensado == dicho){
+            					cout << "Felicidades, has adivinado el numero\n";
+            					intentodos=1;
+       					}
+       						else{
+       							 	if(pensado > dicho){
+       							 	cout << "El numero es mayor a ";
+           						 	cout <<dicho<<endl;	
+									}     							 		
+									else{
+										if(pensado < dicho){
+										cout << "El numero es menor a ";
+           						  		cout << dicho<<endl;	
+										}
+										else{
+										cout<<"El dato introducido es incorrecto";
+										}}}
+						if(i == 7 && pensado != dicho){
+								cout<<endl<<"Has perdido el juego"<<endl<<"El numero es: "<<pensado<<endl<<endl;
+							}
+   						}
+ 
+                         break;
+                         	
+                    }
+                     
+				
+   
+    }
+    system("PAUSE");
+ 
+     return 0;
+}
